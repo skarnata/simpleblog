@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Delete Blog Post{% endblock %}
+{% block contents %}
+    <h1>Delete Blog Post</h1>
+    <br><br>
+    {% if user.is_authenticated %}
+        <h3>Delete : {{ post.title }}</h3>
+        <form action="" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                <p>Are you sure want to delete?</p>
+                <br>
+                <br>
+                <button class="btn btn-danger" type="submit">Delete Post</button>
+            </div>
+        </form>
+    {% else %}
+        You are not allowed to delete the post until you login.
+    {% endif %}
+{% endblock %}
